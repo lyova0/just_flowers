@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Flowers</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background: #f3f3f3;
+        }
+        /* ================= FONTS ================= */
+        
+        @font-face {
+            font-family: "BodoniModa";
+            src: url("fonts/BodoniModa-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+            font-style: italic;
+            font-weight: 100 900;
+        }
+        
+        @font-face {
+            font-family: "BraindGyumri";
+            src: url("fonts/BraindGyumri.otf") format("opentype");
+            font-style: normal;
+            font-weight: normal;
+        }
+        /* ================= HERO ================= */
+        
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("Images/_.jpeg") center/cover no-repeat;
+            filter: blur(8px) brightness(0.7);
+            transform: scale(1.1);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 340px;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 100px;
+            font-weight: 300;
+            font-family: 'BodoniModa';
+            margin-bottom: 1px;
+            line-height: 0.9;
+        }
+        
+        .hero p {
+            font-size: 14px;
+            margin-top: 30px;
+        }
+        
+        .hero-btn {
+            margin-top: 40px;
+            padding: 16px 42px;
+            border-radius: 40px;
+            border: none;
+            background: #b9a8e6;
+            font-family: 'BraindGyumri';
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        /* ================= HERO 1 ================= */
+        
+        .hero1 {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+        
+        .hero1::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("Images/_.jpeg") center/cover no-repeat;
+            filter: blur(8px) brightness(0.7);
+            transform: scale(1.1);
+        }
+        
+        .hero-content1 {
+            position: relative;
+            z-index: 2;
+            max-width: 340px;
+            padding: 10px;
+        }
+        
+        .hero1 h1 {
+            font-size: 40px;
+            font-weight: 300;
+            font-family: 'BraindGyumri';
+            margin-bottom: 1px;
+            line-height: 0.9;
+        }
+        
+        .hero1 p {
+            font-size: 14px;
+            margin-top: 30px;
+        }
+        
+        .hero1 p1 {
+            font-size: 25px;
+            font-family: 'BodoniModa';
+            margin-top: 30px;
+        }
+        /* ================= PRODUCTS ================= */
+        
+        .products {
+            padding: 30px 12px;
+        }
+        /* Product Card */
+        
+        .product-card {
+            max-width: 380px;
+            margin: 22px auto;
+            border-radius: 28px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transition: 0.25s;
+        }
+        
+        .product-card:hover {
+            transform: scale(0.97);
+        }
+        /* Image */
+        
+        .image-wrapper {
+            position: relative;
+        }
+        
+        .image-wrapper img {
+            width: 100%;
+            display: block;
+        }
+        
+        .price-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: #fff;
+            padding: 6px 14px;
+            border-radius: 18px;
+            font-size: 20px;
+            font-family: 'BraindGyumri';
+        }
+        /* Bottom block */
+        
+        .product-info {
+            background: #c9c0f4;
+            padding: 22px 18px 26px;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .product-info h3 {
+            font-size: 50px;
+            font-family: 'BraindGyumri';
+            margin-bottom: 10px;
+        }
+        
+        .product-info1 h3 {
+            font-size: 30px;
+            font-family: 'BraindGyumri';
+            margin-bottom: 10px;
+        }
+        
+        .product-info1 {
+            background: #c9c0f4;
+            padding: 22px 18px 26px;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .product-info p {
+            font-size: 13px;
+            line-height: 1.4;
+            margin-bottom: 14px;
+            opacity: 0.95;
+        }
+        /* Prices */
+        
+        .prices {
+            margin-bottom: 18px;
+        }
+        
+        .new-price {
+            font-size: 22px;
+            font-weight: bold;
+            font-family: 'BraindGyumri';
+            margin-right: 10px;
+        }
+        
+        .old-price {
+            font-size: 18px;
+            opacity: 0.7;
+            font-family: 'BraindGyumri';
+            text-decoration: line-through;
+        }
+        /* Button */
+        
+        .order-btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 26px;
+            border: none;
+            font-size: 30px;
+            background: #fff;
+            color: #b9a8e6;
+            font-family: 'BraindGyumri';
+            cursor: pointer;
+        }
+        /* ================= INFO ================= */
+        
+        .info {
+            position: relative;
+            padding: 30px 20px;
+            color: #fff;
+            overflow: hidden;
+        }
+        /* ՆԿԱՐԸ տեղափոխում ենք pseudo-element */
+        
+        .info::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("Images/image 15 (1) (1).png") center / cover no-repeat;
+            opacity: 0.6;
+            /* փոխիր ըստ ցանկության */
+            z-index: 0;
+        }
+        
+        .info-box {
+            max-width: 600px;
+            margin: auto;
+            padding: 80px 30px;
+            border-radius: 4px;
+            text-align: center;
+            min-height: 200px;
+            z-index: 2;
+            position: relative;
+        }
+        /* Title */
+        
+        .info-box h2 {
+            font-size: 64px;
+            font-weight: 300;
+            color: #555;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            font-family: 'BodoniModa';
+        }
+        /* Text */
+        
+        .info-box p {
+            font-size: 40px;
+            line-height: 1.8;
+            font-family: 'BraindGyumri';
+            color: #555;
+        }
+        /* Mobile */
+        
+        @media (max-width: 600px) {
+            .info-box h2 {
+                font-size: 42px;
+            }
+            .info-box p {
+                font-size: 15px;
+            }
+        }
+        /* ================= b ================= */
+        
+        .b {
+            padding: 30px 20px;
+            color: #ffffff;
+        }
+        
+        .b h1 {
+            font-size: 40px;
+            text-align: center;
+            font-weight: 300;
+            font-family: 'BraindGyumri';
+            margin-bottom: 1px;
+            line-height: 0.9;
+            color: #000000;
+        }
+        
+        .b p {
+            font-size: 14px;
+            text-align: center;
+            margin-top: 30px;
+            color: #000000;
+        }
+        
+        .b p1 {
+            font-size: 25px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        /* Контейнер для горизонтального расположения */
+        
+        .b1-content1 {
+            display: flex;
+            justify-content: center;
+            /* центрирует кнопки по горизонтали */
+            gap: 20px;
+            /* расстояние между кнопками */
+            margin-top: 20px;
+        }
+        /* Общий стиль кнопок */
+        
+        .b1-content1 button {
+            width: 30px;
+            /* размер кнопки */
+            height: 30px;
+            border: none;
+            background-size: cover;
+            /* иконка будет полностью внутри кнопки */
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            border-radius: 10px;
+            /* можно убрать, если нужен прямоугольник */
+            transition: transform 0.3s ease;
+        }
+        /* Hover эффект */
+        
+        .b1-content1 button:hover {
+            transform: scale(1.1);
+        }
+        /* Конкретные кнопки с иконками */
+        
+        .insta_btn {
+            background-image: url('Images/inst.png');
+            /* путь к иконке Instagram */
+        }
+        
+        .teleg_btn {
+            background-image: url('Images/tg.png');
+            /* путь к иконке Telegram */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Just Flowers</h1>
+            <p>Ծաղիկների տուփեր մատչելի գնով՝ առաքմամբ ձեր հասցեով:</p>
+            <p>Բացեցի։ Հանեցի։ Տեղադրեցի։</p>
+            <p>Պարզ։ Արագ։ Ազնիվ։</p>
+            <button class="hero-btn" onclick="scrollToNextSection()">Կատարեք պատվեր</button>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products">
+
+        <div class="product-card" onclick="order(1)">
+            <div class="image-wrapper">
+                <img src="Images/image 13.png">
+            </div>
+            <div class="product-info">
+                <h3>Կակաչներ 19 / 20</h3>
+                <div class="prices">
+                </div>
+                <button class="order-btn" onclick="goToTelegram()">Կատարեք պատվեր</button>
+            </div>
+        </div>
+
+        <div class=" product-card " onclick="order(2) ">
+            <div class="image-wrapper ">
+                <img src="Images/image 17.png ">
+            </div>
+            <div class="product-info ">
+                <h3>Կակաչներ 19 / 20</h3>
+                <div class="prices ">
+                </div>
+                <button class="order-btn " onclick="goToTelegram()">Կատարեք պատվեր</button>
+            </div>
+        </div>
+
+        <div class="product-card " onclick="order(3) ">
+            <div class="image-wrapper ">
+                <img src="Images/image 14.png ">
+            </div>
+            <div class="product-info ">
+                <h3>Կակաչներ 19 / 20</h3>
+                <div class="prices ">
+                </div>
+                <button class="order-btn " onclick="goToTelegram()">Կատարեք պատվեր</button>
+            </div>
+        </div>
+
+        <div class="product-card " onclick="order(4) ">
+            <div class="image-wrapper ">
+                <img src="Images/image 16.jpg ">
+            </div>
+            <div class="product-info ">
+                <h3>Կակաչներ 19 / 20</h3>
+                <div class="prices ">
+                </div>
+                <button class="order-btn " onclick="goToTelegram()">Կատարեք պատվեր</button>
+            </div>
+        </div>
+
+        <div class="product-card " onclick="order(5) ">
+            <div class="image-wrapper ">
+                <img src="Images/image 13 (1).png ">
+            </div>
+            <div class="product-info ">
+                <h3>Վարդեր 19 / 20</h3>
+                <div class="prices ">
+                </div>
+                <button class="order-btn " onclick="goToTelegram()">Կատարեք պատվեր</button>
+            </div>
+        </div>
+
+        <div class="product-card " onclick="order(6) ">
+            <div class="image-wrapper ">
+                <img src="Images/image 13 (2).png ">
+            </div>
+            <div class="product-info ">
+                <h3>Վարդեր 19 / 20</h3>
+                <div class="prices ">
+                </div>
+                <button class="order-btn " onclick="goToTelegram()">Կատարեք պատվեր</button>
+            </div>
+        </div>
+
+        <div class="product-card " onclick="order(7) ">
+            <div class="image-wrapper ">
+                <img src="Images/image 13 (3).png ">
+            </div>
+            <div class="product-info ">
+                <h3>Վարդեր 19 / 20</h3>
+                <div class="prices ">
+                </div>
+                <button class="order-btn " onclick="goToTelegram()">Կատարեք պատվեր</button>
+            </div>
+        </div>
+
+        <div class="product-card " onclick="order(8) ">
+            <div class="image-wrapper ">
+                <img src="Images/image 13 (4).png ">
+            </div>
+            <div class="product-info1 ">
+                <h3>Փնջաին վարդեր 19 / 20</h3>
+                <p>Կարմիր, սպիտակ, վարդագույն, նարնջագույն,Մաշկագույն</p>
+                <div class="prices ">
+                </div>
+                <button class="order-btn " onclick="goToTelegram()">Կատարեք պատվեր</button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- INFO -->
+    <section class="info ">
+        <div class="info-box ">
+            <h2>Just Flowers</h2>
+            <p>
+                Մեր առաքելությունն է ծաղիկներ հասցնել մարդկանց սրտին ամեն օր, այլ ոչ թե միայն տոներին։
+            </p>
+        </div>
+    </section>
+
+    <script>
+        const flowers = ['սպիտակ կակաչներով ', 'մանուշակագույն կակաչներով', 'վարդագույն կակաչներով ', 'կարմիր կակաչներով ', 'սպիտակ վարդերով ', 'վարդագույն վարդերով ', 'կարմիր վարդերով ', 'փնջաին վարդերով '];
+
+        function goToTelegram() {
+            window.location.href = "https://t.me/justflowers1 ";
+        }
+
+        function scrollToNextSection() {
+            const currentSection = document.querySelector("section");
+            const nextSection = currentSection.nextElementSibling;
+
+            if (nextSection) {
+                nextSection.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
+        }
+
+        function order(num) {
+            window.location.href =
+                "https://t.me/justflowers1?text=Բարև ձեզ, ես հետաքրքրված եմ " + flowers[num - 1];
+        }
+    </script>
+
+    <!-- INFO -->
+
+    <section class="hero1 ">
+        <div class="hero-content1 ">
+            <h1>Մեր առավելությունները</h1>
+            <p>Մենք հեռացրել ենք բոլոր ավելորդ բաները, որոնց համար մարդիկ սովորաբար գերավճար են անում։ </p>
+            <p>Փաթեթավորում,ձևավորում,տարածքների վարձույթ:Մենք առաջարկում ենք միայն առաքում։</p><br>
+            <p1>1</p>
+                <p>Միշտ թարմ ծաղիկներ</p><br>
+                <p1>2</p>
+                    <p>Արդար և մատչելի գին</p><br>
+                    <p1>3</p>
+                        <p>Արագ առաքում</p>
+                        <p>Ծաղիկները կառաքվեն տուփի մեջ, դուք պարզապես պետք է բացեք այն և դրեք ծաղկամանի մեջ։</p>
+        </div>
+    </section>
+    <section class="b ">
+        <div class="b1-content ">
+            <h1>Կապ մեզ հետ՝</h1>
+            <p>Մենք առաքում ենք կատարում դեպի՝ Երևան</p>
+            <p class="phone ">📞 +374 98 01 37 43</p>
+        </div>
+        <div class="b1-content1 ">
+            <button class="teleg_btn " onclick="goToTelegram()"></button>
+        </div>
+    </section>
+</body>
+
+</html>
